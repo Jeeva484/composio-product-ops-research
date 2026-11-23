@@ -1,0 +1,7 @@
+{
+  "sample_size": 15,
+  "first_pass_accuracy": null,
+  "final_accuracy": null,
+  "status": "Unmeasured",
+  "basis": "Accuracy is not calculated until verification_report.csv contains human or documented outcomes."
+}

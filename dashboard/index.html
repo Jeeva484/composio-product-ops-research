@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>100 App Buildability Study</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">C</span> Composio research case study</div>
+    <div class="header-actions">
+      <a class="button secondary" href="../data/research_results.json" download>JSON</a>
+      <a class="button" href="../data/research_results.csv" download>Download CSV</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AI PRODUCT OPS · 100-APP SAMPLE</p>
+        <h1>The API market is more accessible than it appears—<em>but approval gates decide the queue.</em></h1>
+        <p class="lede">A reproducible research pass across 100 customer-requested apps: auth, access, API surface, MCP readiness, and the real blocker.</p>
+      </div>
+      <div class="headline-metric">
+        <span id="buildableRate">—</span>
+        <small>buildable now or with limits</small>
+      </div>
+    </section>
+
+    <section class="kpis" id="kpis"></section>
+
+    <section class="grid-three" id="coverageCards">
+      <article class="card compact"><p class="eyebrow">REST COVERAGE</p><h2 id="restCoverage">—</h2><p id="restNote"></p></article>
+      <article class="card compact"><p class="eyebrow">GRAPHQL COVERAGE</p><h2 id="graphqlCoverage">—</h2><p id="graphqlNote"></p></article>
+      <article class="card compact"><p class="eyebrow">OFFICIAL MCP</p><h2 id="mcpCoverage">—</h2><p id="mcpNote"></p></article>
+    </section>
+
+    <section class="grid-two">
+      <article class="card">
+        <div class="card-head"><div><p class="eyebrow">PATTERN 01</p><h2>OAuth2 dominates, but API keys are the fastest build path</h2></div></div>
+        <div id="authChart" class="chart"></div>
+      </article>
+      <article class="card insight">
+        <p class="eyebrow">HEADLINES</p>
+        <ul id="headlines"></ul>
+      </article>
+    </section>
+
+    <section class="card table-card">
+      <div class="card-head table-head">
+        <div><p class="eyebrow">FULL RESEARCH MATRIX</p><h2>100 applications</h2></div>
+        <div class="controls">
+          <input id="search" type="search" placeholder="Search app or category">
+          <select id="accessFilter"><option value="">All access</option></select>
+          <select id="categoryFilter"><option value="">All categories</option></select>
+          <select id="authFilter"><option value="">All auth</option></select>
+          <select id="buildFilter"><option value="">All buildability</option></select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th data-sort="rank">#</th><th data-sort="app">App</th><th data-sort="category">Category</th>
+            <th data-sort="auth_methods">Auth</th><th data-sort="access">Access</th>
+            <th data-sort="public_rest_api">REST / GraphQL</th><th data-sort="buildability">Verdict</th><th>Evidence</th>
+          </tr></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="grid-two lower">
+      <article class="card">
+        <p class="eyebrow">HOW THE AGENT WORKED</p>
+        <h2>Evidence-aware research pipeline</h2>
+        <ol class="steps">
+          <li><span>1</span><div><strong>Load</strong><p>Normalize 100 apps and official developer URLs.</p></div></li>
+          <li><span>2</span><div><strong>Fetch</strong><p>Retrieve docs with retries, logging, and intermediate saves.</p></div></li>
+          <li><span>3</span><div><strong>Verify</strong><p>Keep unknown fields unknown until official evidence confirms them.</p></div></li>
+          <li><span>4</span><div><strong>Publish</strong><p>Export JSON, CSV, patterns, and this case study.</p></div></li>
+        </ol>
+      </article>
+      <article class="card">
+        <p class="eyebrow">WHERE HUMANS WERE NEEDED</p>
+        <h2>Ambiguity beats automation</h2>
+        <div class="human-grid">
+          <div><strong>Paid vs. free</strong><p>Plan pages and trial claims need a human to interpret.</p></div>
+          <div><strong>Partner gates</strong><p>OAuth presence does not always mean self-service approval.</p></div>
+          <div><strong>Official MCP</strong><p>Community MCPs must not be counted as vendor-supported.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="verification card">
+      <div class="card-head"><div><p class="eyebrow">VERIFICATION LOOP</p><h2>Evidence, not confidence theater</h2></div></div>
+      <div class="score-row">
+        <div class="score"><strong id="firstPass">Unmeasured</strong><span>first pass</span></div>
+        <div class="arrow">→</div>
+        <div class="score final"><strong id="finalPass">Unmeasured</strong><span>after review</span></div>
+        <div class="score-neutral"><strong id="sampleSize">15</strong><span>apps spot-checked</span></div>
+      </div>
+      <table class="verification-table"><thead><tr><th>App</th><th>Evidence check</th><th>Outcome</th><th>Note</th></tr></thead><tbody id="verificationBody"></tbody></table>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

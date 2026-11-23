@@ -1,0 +1,85 @@
+{
+  "auth": {
+    "Unknown": 78,
+    "OAuth2 / Private app access token": 1,
+    "OAuth2": 9,
+    "API key": 4,
+    "OAuth2 / Bot token": 1,
+    "Bot token": 1,
+    "Consumer key / Consumer secret": 1,
+    "None": 2,
+    "OAuth2 / Personal access token": 3
+  },
+  "access": {
+    "Requires Verification": 97,
+    "Self-serve": 3
+  },
+  "buildability": {
+    "Requires Research": 78,
+    "Requires verification": 20,
+    "Buildable as local CLI integration": 2
+  },
+  "public_rest_api": {
+    "Unknown": 78,
+    "Yes": 20,
+    "No public API": 2
+  },
+  "graphql_api": {
+    "Unknown": 90,
+    "Yes": 8,
+    "No": 2
+  },
+  "official_mcp": {
+    "Unknown": 88,
+    "Requires Verification": 11,
+    "No known official MCP": 1
+  },
+  "community_mcp": {
+    "Unknown": 100
+  },
+  "confidence": {
+    "Low": 100
+  },
+  "categories": {
+    "CRM and Sales": {
+      "total": 10,
+      "self_serve": 1
+    },
+    "Support and Helpdesk": {
+      "total": 10,
+      "self_serve": 0
+    },
+    "Communications and Messaging": {
+      "total": 10,
+      "self_serve": 0
+    },
+    "Marketing, Ads, Email and Social": {
+      "total": 10,
+      "self_serve": 0
+    },
+    "Ecommerce": {
+      "total": 10,
+      "self_serve": 0
+    },
+    "Data, SEO and Scraping": {
+      "total": 10,
+      "self_serve": 1
+    },
+    "Developer, Infra and Data platforms": {
+      "total": 10,
+      "self_serve": 0
+    },
+    "Productivity and Project Management": {
+      "total": 10,
+      "self_serve": 0
+    },
+    "Finance and Fintech": {
+      "total": 10,
+      "self_serve": 0
+    },
+    "AI, Research and Media-native": {
+      "total": 10,
+      "self_serve": 1
+    }
+  }
+}

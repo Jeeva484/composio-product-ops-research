@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "composio": {
+      "source": "ComposioHQ/composio",
+      "sourceType": "github",
+      "skillPath": "skills/composio/SKILL.md",
+      "computedHash": "8873b4bbf23606cfa5d00330b8084018ece5542a3cbbd0a3de2bef48d4fc8bdc"
+    }
+  }
+}
