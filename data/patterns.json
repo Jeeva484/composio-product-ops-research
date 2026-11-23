@@ -1,38 +1,65 @@
 {
   "auth": {
-    "Unknown": 78,
+    "OAuth2 / Connected App": 1,
     "OAuth2 / Private app access token": 1,
-    "OAuth2": 9,
-    "API key": 4,
+    "OAuth2": 29,
+    "OAuth2 / API key": 9,
+    "API key": 29,
+    "API key / OAuth2": 4,
+    "API key (Bearer token)": 1,
+    "Unknown": 4,
     "OAuth2 / Bot token": 1,
     "Bot token": 1,
+    "OAuth2 (Meta)": 1,
     "Consumer key / Consumer secret": 1,
+    "OAuth2 (SLAS)": 1,
+    "OAuth2 (LWA)": 1,
+    "API key (HTTP Basic)": 1,
     "None": 2,
-    "OAuth2 / Personal access token": 3
+    "OAuth2 / Personal access token": 5,
+    "API key / JWT": 1,
+    "Username / password / API key": 1,
+    "OAuth2 / Key pair": 1,
+    "API key (Digest)": 1,
+    "OAuth2 / API token": 1,
+    "API key (client_id + secret)": 1,
+    "Google OAuth2": 1,
+    "API key (RapidAPI)": 1
   },
   "access": {
-    "Requires Verification": 97,
-    "Self-serve": 3
+    "Requires Verification": 50,
+    "Self-serve": 40,
+    "Partner / admin-gated": 9,
+    "Self-serve (no public API)": 1
   },
   "buildability": {
-    "Requires Research": 78,
-    "Requires verification": 20,
-    "Buildable as local CLI integration": 2
+    "Requires verification": 49,
+    "Buildable now": 28,
+    "Buildable with limits": 16,
+    "Requires Research": 4,
+    "Buildable as local CLI integration": 2,
+    "Not buildable via public API": 1
   },
   "public_rest_api": {
-    "Unknown": 78,
-    "Yes": 20,
-    "No public API": 2
+    "Yes": 75,
+    "Unknown": 22,
+    "No public API": 3
   },
   "graphql_api": {
-    "Unknown": 90,
-    "Yes": 8,
-    "No": 2
+    "Yes": 12,
+    "Unknown": 85,
+    "No": 3
   },
   "official_mcp": {
-    "Unknown": 88,
-    "Requires Verification": 11,
-    "No known official MCP": 1
+    "Unknown": 82,
+    "Requires Verification": 9,
+    "No known official MCP": 3,
+    "Yes \u2013 official MCP server (github.com/github/github-mcp-server)": 1,
+    "Yes \u2013 official MCP server (developers.cloudflare.com/agents/)": 1,
+    "Yes \u2013 official MCP server (docs.datadoghq.com/agent/mcp)": 1,
+    "Yes \u2013 official MCP server (developers.notion.com/docs/mcp)": 1,
+    "Yes \u2013 official MCP server (atlassian.com/mcp)": 1,
+    "Yes \u2013 official MCP server (docs.stripe.com/mcp)": 1
   },
   "community_mcp": {
     "Unknown": 100
@@ -43,7 +70,7 @@
   "categories": {
     "CRM and Sales": {
       "total": 10,
-      "self_serve": 1
+      "self_serve": 3
     },
     "Support and Helpdesk": {
       "total": 10,
@@ -51,35 +78,35 @@
     },
     "Communications and Messaging": {
       "total": 10,
-      "self_serve": 0
+      "self_serve": 1
     },
     "Marketing, Ads, Email and Social": {
       "total": 10,
-      "self_serve": 0
+      "self_serve": 3
     },
     "Ecommerce": {
       "total": 10,
-      "self_serve": 0
+      "self_serve": 3
     },
     "Data, SEO and Scraping": {
       "total": 10,
-      "self_serve": 1
+      "self_serve": 7
     },
     "Developer, Infra and Data platforms": {
       "total": 10,
-      "self_serve": 0
+      "self_serve": 6
     },
     "Productivity and Project Management": {
       "total": 10,
-      "self_serve": 0
+      "self_serve": 8
     },
     "Finance and Fintech": {
       "total": 10,
-      "self_serve": 0
+      "self_serve": 2
     },
     "AI, Research and Media-native": {
       "total": 10,
-      "self_serve": 1
+      "self_serve": 7
     }
   }
 }

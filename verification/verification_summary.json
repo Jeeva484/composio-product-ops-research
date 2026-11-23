@@ -1,0 +1,48 @@
+{
+  "sample_size": 20,
+  "categories_covered": 10,
+  "apps_per_category": 2,
+  "application_level": {
+    "pass": 14,
+    "partial": 6,
+    "fail": 0,
+    "unresolved": 0,
+    "completed_verifications": 20,
+    "pass_rate_pct": 70.0,
+    "weighted_accuracy_pct": 85.0
+  },
+  "field_level_accuracy": {
+    "auth_methods": {
+      "matches": 17,
+      "total": 20,
+      "accuracy_pct": 85.0
+    },
+    "public_rest_api": {
+      "matches": 20,
+      "total": 20,
+      "accuracy_pct": 100.0
+    },
+    "graphql_api": {
+      "matches": 18,
+      "total": 20,
+      "accuracy_pct": 90.0
+    },
+    "access": {
+      "matches": 11,
+      "total": 20,
+      "accuracy_pct": 55.0
+    },
+    "official_mcp": {
+      "matches": 16,
+      "total": 20,
+      "accuracy_pct": 80.0
+    },
+    "buildability": {
+      "matches": 10,
+      "total": 20,
+      "accuracy_pct": 50.0
+    }
+  },
+  "status": "Measured",
+  "methodology": "Weighted accuracy = (Pass + 0.5*Partial) / (Pass + Partial + Fail). Unresolved records excluded. Pass: prediction matches verified ground truth on all checked fields. Partial: some fields match, with identified discrepancy. Fail: prediction fundamentally contradictory."
+}

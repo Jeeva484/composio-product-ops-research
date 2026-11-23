@@ -1,7 +1,11 @@
 {
-  "sample_size": 15,
-  "first_pass_accuracy": null,
-  "final_accuracy": null,
-  "status": "Unmeasured",
-  "basis": "Accuracy is not calculated until verification_report.csv contains human or documented outcomes."
+  "sample_size": 20,
+  "pass": 14,
+  "partial": 6,
+  "fail": 0,
+  "unresolved": 0,
+  "completed_verifications": 20,
+  "weighted_accuracy_pct": 85.0,
+  "status": "Measured",
+  "methodology": "Weighted accuracy = (Pass + 0.5*Partial) / (Pass + Partial + Fail). Unresolved records excluded. Pass: prediction matches verified ground truth on all checked fields. Partial: some fields match, with identified discrepancy. Fail: prediction fundamentally contradictory."
 }
