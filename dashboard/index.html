@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>100-App API Buildability Study | Composio Research</title>
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -10,30 +10,67 @@
 
   <!-- TOP NAV -->
   <nav class="topnav" id="topnav">
-    <div class="nav-brand"><span class="brand-mark">C</span> Composio · 100-App Research</div>
-    <ul class="nav-links">
-      <li><a href="#executive-summary">Summary</a></li>
-      <li><a href="#scope">Scope</a></li>
-      <li><a href="#methodology">Method</a></li>
-      <li><a href="#auth-patterns">Auth</a></li>
-      <li><a href="#access-patterns">Access</a></li>
-      <li><a href="#api-findings">API</a></li>
-      <li><a href="#mcp">MCP</a></li>
-      <li><a href="#buildability">Build</a></li>
-      <li><a href="#insights">Insights</a></li>
-      <li><a href="#architecture">Agent</a></li>
-      <li><a href="#verification">Verify</a></li>
-      <li><a href="#limitations">Limits</a></li>
-      <li><a href="#recommendations">Recs</a></li>
-      <li><a href="#full-matrix">Matrix</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a class="btn secondary" href="../data/research_results.json" download>JSON</a>
-      <a class="btn" href="../data/research_results.csv" download>CSV</a>
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span class="brand-text">Composio · 100-App Research</span>
+      </div>
+
+      <!-- Hamburger toggle button for mobile/tablet -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <!-- Main navigation links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#executive-summary">Summary</a></li>
+        <li><a href="#scope">Scope</a></li>
+        <li><a href="#methodology">Method</a></li>
+        <li><a href="#auth-patterns">Auth</a></li>
+        <li><a href="#access-patterns">Access</a></li>
+        <li><a href="#api-findings">API</a></li>
+        <li><a href="#mcp">MCP</a></li>
+        <li><a href="#buildability">Build</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#architecture">Agent</a></li>
+        <li><a href="#verification">Verify</a></li>
+        <li><a href="#limitations">Limits</a></li>
+        <li><a href="#recommendations">Recs</a></li>
+        <li><a href="#full-matrix">Matrix</a></li>
+        <li class="mobile-nav-action"><a class="btn secondary" href="../data/research_results.json" download>Download JSON</a></li>
+        <li class="mobile-nav-action"><a class="btn primary" href="../data/research_results.csv" download>Download CSV</a></li>
+      </ul>
+
+      <!-- Desktop nav action buttons -->
+      <div class="nav-actions">
+        <a class="btn secondary" href="../data/research_results.json" download title="Download full dataset as JSON" aria-label="Download research findings as JSON">JSON</a>
+        <a class="btn primary" href="../data/research_results.csv" download title="Download full dataset as CSV" aria-label="Download research findings as CSV">CSV</a>
+      </div>
+    </div>
+
+    <!-- Mobile / tablet horizontally scrollable sub-nav pill row -->
+    <div class="sub-nav-scroll" id="subNavScroll" aria-label="Section shortcuts">
+      <a href="#executive-summary">Summary</a>
+      <a href="#scope">Scope</a>
+      <a href="#methodology">Method</a>
+      <a href="#auth-patterns">Auth</a>
+      <a href="#access-patterns">Access</a>
+      <a href="#api-findings">API</a>
+      <a href="#mcp">MCP</a>
+      <a href="#buildability">Build</a>
+      <a href="#insights">Insights</a>
+      <a href="#architecture">Agent</a>
+      <a href="#verification">Verify</a>
+      <a href="#limitations">Limits</a>
+      <a href="#recommendations">Recs</a>
+      <a href="#full-matrix">Matrix</a>
     </div>
   </nav>
 
-  <main>
+  <!-- MAIN PAGE CONTAINER -->
+  <main class="page-container">
 
     <!-- ══════════════════════════════════════════════════════════
          SECTION 1 · EXECUTIVE SUMMARY
@@ -100,7 +137,7 @@
       <div class="pipeline">
         <div class="pipe-step">
           <span class="pipe-num">1</span>
-          <div>
+          <div class="pipe-step-body">
             <strong>Load</strong>
             <p>Normalize 100 apps from <code>data/apps.json</code> with official developer URL per app.</p>
           </div>
@@ -108,7 +145,7 @@
         <div class="pipe-arrow">→</div>
         <div class="pipe-step">
           <span class="pipe-num">2</span>
-          <div>
+          <div class="pipe-step-body">
             <strong>Fetch</strong>
             <p>HTTP GET each developer URL with 3-attempt retry and exponential back-off. 91 of 100 pages returned HTTP 200.</p>
           </div>
@@ -116,7 +153,7 @@
         <div class="pipe-arrow">→</div>
         <div class="pipe-step">
           <span class="pipe-num">3</span>
-          <div>
+          <div class="pipe-step-body">
             <strong>Extract</strong>
             <p>Pattern-based keyword detection from page text. Authoritative KNOWN_* dictionaries override keyword results for well-documented apps.</p>
           </div>
@@ -124,7 +161,7 @@
         <div class="pipe-arrow">→</div>
         <div class="pipe-step">
           <span class="pipe-num">4</span>
-          <div>
+          <div class="pipe-step-body">
             <strong>Export</strong>
             <p>Pydantic-validated records written atomically to <code>research_results.json</code> and <code>.csv</code> with intermediate saves for resume support.</p>
           </div>
@@ -147,7 +184,7 @@
         </div>
         <div class="insight-panel">
           <h3>Key findings</h3>
-          <ul id="authInsights"></ul>
+          <ul id="authInsights" class="insight-list"></ul>
         </div>
       </div>
     </section>
@@ -159,7 +196,7 @@
       <p class="eyebrow">SECTION 06 · DEVELOPER ACCESS PATTERNS</p>
       <h2>Self-serve vs. gated access by category</h2>
       <div id="accessSummary" class="access-row"></div>
-      <div class="table-wrap" style="margin-top:16px">
+      <div class="table-wrap">
         <table id="accessTable">
           <thead><tr><th>Category</th><th>Self-serve</th><th>Partner/admin-gated</th><th>Requires verification</th></tr></thead>
           <tbody id="accessBody"></tbody>
@@ -220,27 +257,33 @@
       <h2>How the agent was built</h2>
       <div class="arch-grid">
         <div class="arch-card">
-          <h3>📂 Dataset loader</h3>
+          <div class="arch-icon">📂</div>
+          <h3>Dataset loader</h3>
           <p><code>data/apps.json</code> — canonical source of 100 apps with official developer URL per app. Loaded fresh on every run.</p>
         </div>
         <div class="arch-card">
-          <h3>🌐 Documentation fetcher</h3>
+          <div class="arch-icon">🌐</div>
+          <h3>Documentation fetcher</h3>
           <p><code>DocumentationResearcher.fetch()</code> — HTTP GET with 3-attempt retry, exponential back-off, and User-Agent header. 91/100 pages returned HTTP 200.</p>
         </div>
         <div class="arch-card">
-          <h3>🧠 Field extractor</h3>
+          <div class="arch-icon">🧠</div>
+          <h3>Field extractor</h3>
           <p><code>DocumentationExtractor.extract()</code> — keyword detection from page text, overridden by authoritative <code>KNOWN_*</code> dictionaries for well-documented apps. Pydantic model validation.</p>
         </div>
         <div class="arch-card">
-          <h3>💾 Intermediate saver</h3>
+          <div class="arch-icon">💾</div>
+          <h3>Intermediate saver</h3>
           <p><code>research_partial.json</code> — per-app save after each fetch. Resume mode (<code>--resume</code>) skips already-completed ranks.</p>
         </div>
         <div class="arch-card">
-          <h3>📊 Classifier</h3>
+          <div class="arch-icon">📊</div>
+          <h3>Classifier</h3>
           <p><code>agent/classifier.py</code> — aggregates auth, access, buildability, REST, GraphQL, and MCP distributions into <code>data/patterns.json</code> for the dashboard.</p>
         </div>
         <div class="arch-card">
-          <h3>🔗 Composio SDK</h3>
+          <div class="arch-icon">🔗</div>
+          <h3>Composio SDK</h3>
           <p><code>agent/composio_adapter.py</code> — genuine Composio SDK integration. Session <code>trs_SvEmQiVpRST1</code> created; GitHub tool <code>GITHUB_LIST_REPOSITORIES_FOR_THE_AUTHENTICATED_USER</code> executed with log ID <code>log_9hzv0q6zrQAX</code>.</p>
         </div>
       </div>
@@ -304,26 +347,30 @@
       <h2>Where to start building integrations</h2>
       <div class="rec-grid" id="recGrid">
         <div class="rec-card green">
-          <h3>🟢 Build immediately</h3>
+          <div class="rec-icon">🟢</div>
+          <h3>Build immediately</h3>
           <p>Start with self-serve, API-key apps: <strong>GitHub, Stripe, Twilio, SendGrid, Datadog, Sentry, Supabase, Apify, Firecrawl, Notion, Airtable, Linear, ClickUp, HubSpot, Mailchimp, Klaviyo.</strong> All have confirmed auth, REST APIs, and no approval gate.</p>
         </div>
         <div class="rec-card amber">
-          <h3>🟡 Build with caveats</h3>
+          <div class="rec-icon">🟡</div>
+          <h3>Build with caveats</h3>
           <p>Apps with known auth and REST but plan-level or review caveats: <strong>Shopify, Slack, Zendesk, Freshdesk, Jira, Asana, Monday.com, QuickBooks, Xero, Ramp, Brex, Ahrefs.</strong> Confirm plan tier and sandbox availability first.</p>
         </div>
         <div class="rec-card red">
-          <h3>🔴 Requires vendor approval first</h3>
+          <div class="rec-icon">🔴</div>
+          <h3>Requires vendor approval first</h3>
           <p>Partner or admin-gated apps require explicit vendor approval before building: <strong>Google Ads, Meta Ads, LinkedIn Ads, WhatsApp Business, Amazon Selling Partner, Plaid, Salesforce Commerce Cloud, PitchBook, DealCloud.</strong></p>
         </div>
         <div class="rec-card purple">
-          <h3>🟣 Use MCP-first path</h3>
+          <div class="rec-icon">🟣</div>
+          <h3>Use MCP-first path</h3>
           <p>For apps with official MCP servers, prefer the MCP integration path over raw REST: <strong>GitHub, Stripe, Notion, Jira, Datadog, Cloudflare.</strong> Official MCP servers are vendor-maintained and type-safe.</p>
         </div>
       </div>
     </section>
 
     <!-- ══════════════════════════════════════════════════════════
-         SECTION · FULL RESEARCH MATRIX (interactive table)
+         SECTION 15 · FULL RESEARCH MATRIX (interactive table)
          ══════════════════════════════════════════════════════════ -->
     <section id="full-matrix" class="section-block card-full">
       <div class="table-header">
@@ -332,39 +379,39 @@
           <h2>100 applications</h2>
         </div>
         <div class="controls">
-          <input id="search" type="search" placeholder="Search app or category…">
-          <select id="accessFilter"><option value="">All access</option></select>
-          <select id="categoryFilter"><option value="">All categories</option></select>
-          <select id="authFilter"><option value="">All auth</option></select>
-          <select id="buildFilter"><option value="">All buildability</option></select>
+          <input id="search" type="search" placeholder="Search app, category, auth…" aria-label="Search applications">
+          <select id="accessFilter" aria-label="Filter by access model"><option value="">All access</option></select>
+          <select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option></select>
+          <select id="authFilter" aria-label="Filter by authentication method"><option value="">All auth</option></select>
+          <select id="buildFilter" aria-label="Filter by buildability verdict"><option value="">All buildability</option></select>
         </div>
       </div>
       <div class="table-wrap">
         <table>
           <thead><tr>
-            <th data-sort="rank">#</th>
-            <th data-sort="app">App</th>
-            <th data-sort="category">Category</th>
-            <th data-sort="auth_methods">Auth</th>
-            <th data-sort="access">Access</th>
-            <th data-sort="public_rest_api">REST</th>
-            <th data-sort="graphql_api">GraphQL</th>
-            <th data-sort="official_mcp">MCP</th>
-            <th data-sort="buildability">Verdict</th>
-            <th>Docs</th>
+            <th data-sort="rank" scope="col">#</th>
+            <th data-sort="app" scope="col">App</th>
+            <th data-sort="category" scope="col">Category</th>
+            <th data-sort="auth_methods" scope="col">Auth</th>
+            <th data-sort="access" scope="col">Access</th>
+            <th data-sort="public_rest_api" scope="col">REST</th>
+            <th data-sort="graphql_api" scope="col">GraphQL</th>
+            <th data-sort="official_mcp" scope="col">MCP</th>
+            <th data-sort="buildability" scope="col">Verdict</th>
+            <th scope="col">Docs</th>
           </tr></thead>
           <tbody id="tableBody"></tbody>
         </table>
       </div>
-      <p class="table-hint">Click any row for full details. Click column headers to sort.</p>
+      <p class="table-hint">💡 Click any row for full details. Click column headers to sort.</p>
     </section>
 
   </main>
 
   <!-- Detail modal -->
-  <div id="detailModal" class="modal" hidden>
+  <div id="detailModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
     <div class="modal-panel">
-      <button class="modal-close" aria-label="Close">×</button>
+      <button class="modal-close" aria-label="Close detail modal">×</button>
       <div id="modalContent"></div>
     </div>
   </div>

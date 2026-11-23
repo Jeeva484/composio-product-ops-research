@@ -658,8 +658,33 @@ async function init() {
   setupModalHandlers();
   renderMatrixTable();
 
-  // Wire download buttons in nav
-  $$(".nav-actions a").forEach((a) => {
+  // Setup mobile navigation toggle
+  const navToggle = $("#navToggle");
+  const navLinksList = $("#navLinks");
+  if (navToggle && navLinksList) {
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = navLinksList.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    $$("#navLinks a").forEach((a) => {
+      a.addEventListener("click", () => {
+        navLinksList.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!navToggle.contains(e.target) && !navLinksList.contains(e.target)) {
+        navLinksList.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  // Wire download buttons in desktop nav and mobile dropdown
+  $$(".nav-actions a, .mobile-nav-action a").forEach((a) => {
     if (a.textContent.includes("JSON")) {
       a.addEventListener("click", (e) => {
         e.preventDefault();
@@ -673,8 +698,8 @@ async function init() {
     }
   });
 
-  // Topnav smooth scroll active link highlight
-  const navLinks = $$(".nav-links a");
+  // Topnav & subnav smooth scroll active link highlight
+  const navLinks = $$(".nav-links a, .sub-nav-scroll a");
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
